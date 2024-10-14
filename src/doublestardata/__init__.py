@@ -1,1 +1,1 @@
-from .doublestardata import DoubleStarData
+from .doublestardata import DoubleStarData, read_data_from_file

@@ -1,0 +1,1 @@
+from .doublestardata import DoubleStarData

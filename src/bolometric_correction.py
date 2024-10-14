@@ -1,7 +1,7 @@
 import csv
 from pathlib import Path
 
-import numpy
+import scipy
 
 from doublestardata import DoubleStarData
 
@@ -55,4 +55,6 @@ def _get_bolometric_correction_by_type(
                     fp.append(float(column.replace(',', '.')))
 
     star_spectral_num = _spectral_class_to_num(star_class)
-    return float(numpy.interp(star_spectral_num, xp, fp))
+    linear_interpolation = scipy.interpolate.interp1d(xp, fp)
+
+    return float(linear_interpolation(star_spectral_num))

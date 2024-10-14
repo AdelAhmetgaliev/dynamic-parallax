@@ -41,7 +41,7 @@ def read_data_from_file(star_number: int) -> DoubleStarData:
                     first_spectral_class_column = i
                 case 'SP2':
                     second_spectral_class_column = i
-                case 'А"':
+                case 'A"':
                     major_semi_axes_column = i
 
         for row in csv_reader:

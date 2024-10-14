@@ -18,7 +18,9 @@ class DoubleStarData:
 
 
 def read_data_from_file(star_number: int) -> DoubleStarData:
-    path_to_file = (Path(__file__).parent / '../../data/init_params_of_double_stars.csv').resolve()
+    path_to_file = (Path(__file__).parent /
+                    '../../data/init_params_of_double_stars.csv').resolve()
+
     with open(path_to_file, 'r', encoding='utf-8') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=';')
         header_row = next(csv_reader)

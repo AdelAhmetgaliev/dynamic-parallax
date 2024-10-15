@@ -24,8 +24,7 @@ def get_bolometric_correction(
 
 def _spectral_class_to_num(spectral_class: str) -> int:
     letter_to_num = {'O': 1, 'B': 2, 'A': 3, 'F': 4, 'G': 5, 'K': 6, 'M': 7}
-    return letter_to_num[spectral_class[0]] * \
-        len(letter_to_num) + int(spectral_class[1])
+    return letter_to_num[spectral_class[0]] * 10 + int(spectral_class[1])
 
 
 def _get_bolometric_correction_by_type(

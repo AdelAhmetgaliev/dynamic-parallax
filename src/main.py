@@ -22,13 +22,14 @@ def calculate_absolute_stellar_magnitude(
 
 
 def main() -> None:
-    star_number = 0
+    star_number = 1
+    iteration_count = 10
 
     star_data = read_data_from_file(star_number)
     first_star_mass = 1
     second_star_mass = 1
 
-    for i in range(5):
+    for i in range(iteration_count):
         parallax = calculate_parallax(
             star_data, first_star_mass, second_star_mass)
         absolute_stellar_magnitude = calculate_absolute_stellar_magnitude(

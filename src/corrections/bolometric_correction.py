@@ -31,11 +31,14 @@ def _spectral_class_to_num(spectral_class: str) -> int:
 def _get_bolometric_correction_by_type(
         star_type: str, star_class: str) -> float:
     path_to_file = (Path(__file__).parent /
-                    f'../data/bolometric_corrections_{star_type}.csv').resolve()
+                    f'../../data/bolometric_corrections_{star_type}.csv').resolve()
 
     with open(path_to_file, 'r', encoding='utf-8') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=';')
         header_row = next(csv_reader)
+
+        spectral_class_column = 0
+        correction_column = 5
 
         for i, column_name in enumerate(header_row):
             match column_name.strip().upper():

@@ -1,8 +1,7 @@
 from math import log10
 
-from bolometric_correction import get_bolometric_correction
+from corrections import get_bolometric_correction, get_corrected_mass
 from doublestardata import DoubleStarData, read_data_from_file
-from mass_correction import get_corrected_mass
 
 
 def calculate_parallax(star_data: DoubleStarData,
@@ -14,9 +13,9 @@ def calculate_parallax(star_data: DoubleStarData,
 def calculate_absolute_stellar_magnitude(
         star_data: DoubleStarData, parallax: float) -> tuple[float, float]:
     first_absolute_stellar_magnitude = star_data.first_stellar_magnitude + \
-                                       5 + 5 * log10(parallax)
+        5 + 5 * log10(parallax)
     second_absolute_stellar_magnitude = star_data.second_stellar_magnitude + \
-                                        5 + 5 * log10(parallax)
+        5 + 5 * log10(parallax)
 
     return first_absolute_stellar_magnitude, second_absolute_stellar_magnitude
 
@@ -35,9 +34,9 @@ def main() -> None:
     print('Значения перед обработкой:')
     print(
         f'\tПервая звезда: {
-        first_star_mass:.3f} M☉, '
+            first_star_mass:.3f} M☉, '
         f'Вторая звезда: {
-        second_star_mass:.3f} M☉')
+            second_star_mass:.3f} M☉')
     print(f'\tПараллакс: {parallax:.3f}"')
 
     for i in range(iteration_count):
@@ -49,9 +48,9 @@ def main() -> None:
         first_bolometric_correction, second_bolometric_correction = bolometric_correction
 
         first_stellar_magnitude = first_absolute_stellar_magnitude + \
-                                  first_bolometric_correction
+            first_bolometric_correction
         second_stellar_magnitude = second_absolue_stellar_magnitude + \
-                                   second_bolometric_correction
+            second_bolometric_correction
 
         first_star_mass = get_corrected_mass(first_stellar_magnitude)
         second_star_mass = get_corrected_mass(second_stellar_magnitude)
@@ -61,9 +60,9 @@ def main() -> None:
         print(f'Итерация №{i + 1}:')
         print(
             f'\tПервая звезда: {
-            first_star_mass:.3f} M☉, '
+                first_star_mass:.3f} M☉, '
             f'Вторая звезда: {
-            second_star_mass:.3f} M☉')
+                second_star_mass:.3f} M☉')
         print(f'\tПараллакс: {parallax:.3f}"')
 
 

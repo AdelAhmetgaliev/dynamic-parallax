@@ -24,6 +24,15 @@ def read_data_from_file(star_number: int) -> DoubleStarData:
     with open(path_to_file, 'r', encoding='utf-8') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=';')
         header_row = next(csv_reader)
+        
+        star_number_column = 0
+        star_name_column = 1
+        star_period_column = 7
+        first_stellar_magnitude_column = 3
+        second_stellar_magnitude_column = 4
+        first_spectral_class_column = 5
+        second_spectral_class_column = 6
+        major_semi_axes_column = 7
 
         for i, column_name in enumerate(header_row):
             match column_name.strip().upper():
@@ -43,6 +52,14 @@ def read_data_from_file(star_number: int) -> DoubleStarData:
                     second_spectral_class_column = i
                 case 'A"':
                     major_semi_axes_column = i
+
+        star_name = 'Default'
+        star_period = 0.0
+        major_semi_axes = 0.0
+        first_stellar_magnitude = 0.0
+        second_stellar_magnitude = 0.0
+        first_spectral_class = 'O0V'
+        second_spectral_class = 'O0V'
 
         for row in csv_reader:
             if int(row[star_number_column]) != star_number:

@@ -34,4 +34,4 @@ def get_corrected_mass(stellar_magnitude: float) -> float:
 
         linear_interpolation = scipy.interpolate.interp1d(xp, fp)
 
-        return float(10 ** linear_interpolation(stellar_magnitude))
+    return float(10 ** linear_interpolation(stellar_magnitude))

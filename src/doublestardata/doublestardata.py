@@ -81,6 +81,6 @@ def read_data_from_file(star_number: int) -> DoubleStarData:
                 elif i == major_semi_axes_column:
                     major_semi_axes = float(column)
 
-        return DoubleStarData(star_name, star_period, major_semi_axes,
-                              first_stellar_magnitude, second_stellar_magnitude,
-                              first_spectral_class, second_spectral_class)
+    return DoubleStarData(star_name, star_period, major_semi_axes,
+                          first_stellar_magnitude, second_stellar_magnitude,
+                          first_spectral_class, second_spectral_class)

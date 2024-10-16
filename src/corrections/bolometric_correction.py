@@ -54,7 +54,7 @@ def _get_bolometric_correction_by_type(
                     xp.append(_spectral_class_to_num(column))
 
                 if i == correction_column:
-                    fp.append(float(column.replace(',', '.')))
+                    fp.append(float(column))
 
     star_spectral_num = _spectral_class_to_num(star_class)
     linear_interpolation = scipy.interpolate.interp1d(xp, fp)

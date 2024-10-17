@@ -1,0 +1,1 @@
+from .calculations import calculate_absolute_stellar_magnitude, calculate_parallax

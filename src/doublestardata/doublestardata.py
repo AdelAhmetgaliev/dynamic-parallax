@@ -24,7 +24,7 @@ def read_data_from_file(star_number: int) -> DoubleStarData:
     with open(path_to_file, 'r', encoding='utf-8') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=';')
         header_row = next(csv_reader)
-        
+
         star_number_column = 0
         star_name_column = 1
         star_period_column = 7
